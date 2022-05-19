@@ -6,17 +6,12 @@ public class GUI {
     JFrame jf;
     Draw draw;
 
-    //piece
-    Color color;
-    int x, y, w, h;
 
 
     public GUI() {
         jf = new JFrame("4-tetris");
         jf.setSize(1920, 1080);
         jf.getContentPane().setBackground(Color.DARK_GRAY);
-
-
 
         jf.setVisible(true);
     }
@@ -29,6 +24,10 @@ public class GUI {
         draw = new Draw(color, x, y, w, h);
         draw.setVisible(true);
         return draw;
+    }
+
+    void Grid() {
+
     }
 
 }
