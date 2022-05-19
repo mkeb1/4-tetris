@@ -1,17 +1,16 @@
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
 import javax.swing.JLabel;
 
-public class Draw extends JLabel {
+public class DrawCircle extends JLabel {
 
     Color color;
     int x, y, w, h;
 
-    public Draw(Color color, int x, int y, int w, int h) {
+    public DrawCircle(Color color, int x, int y, int w, int h) {
         this.x = x;
         this.y = y;
         this.w = w;
@@ -33,6 +32,12 @@ public class Draw extends JLabel {
         g.setColor(color);
         g.fillOval(x, y, w, h);
 
+        repaint();
+    }
+
+    public void move(int x, int y) {
+        this.x = x;
+        this.y = y;
         repaint();
     }
 
