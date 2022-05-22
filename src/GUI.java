@@ -4,7 +4,10 @@ import java.awt.*;
 public class GUI {
 
     JFrame jf;
-    DrawCircle draw;
+    DrawCircle drawCircle;
+    DrawLine drawLine;
+
+
 
 
     public GUI() {
@@ -17,12 +20,14 @@ public class GUI {
 
         jf.setVisible(true);
 
+
+
     }
 
     /**Piece adden und moven **/
 
     public void movePieceTo(int x, int y) {
-        draw.move(x, y);
+        drawCircle.move(x, y);
         jf.repaint();
    }
 
@@ -32,9 +37,9 @@ public class GUI {
     }
 
     DrawCircle piece(Color color, int x, int y, int w, int h) {
-        draw = new DrawCircle(color, x, y, w, h);
-        draw.setVisible(true);
-        return draw;
+        drawCircle = new DrawCircle(color, x, y, w, h);
+        drawCircle.setVisible(true);
+        return drawCircle;
     }
 
     /** Das Spielfeld **/
