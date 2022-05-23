@@ -1,14 +1,15 @@
+import java.awt.*;
 import java.util.Objects;
 import static java.awt.event.KeyEvent.*;   // das braucht man für die Tasten
 
 public class Player {
-    public String colour;    // entweder "red" oder "yellow"
+    public Color colour;    // entweder rot: Color(240, 17, 17) oder gelb: Color(252, 194, 20)
     public int points;
     public int keyLeft;
     public int keyRight;
     public String keys;      // entweder "wasd" oder "arrows"
 
-    Player(String colour, int points, String keys) {
+    Player(Color colour, int points, String keys) {
         this.colour = colour;
         this.points = points;
         if (Objects.equals(keys, "wasd")) {   // d.h. wenn "wasd" angegeben wird hat der Spieler wasd
@@ -22,8 +23,6 @@ public class Player {
     }
 
 
-
-
     public String getKeys() {
         return keys;
     }
@@ -32,11 +31,11 @@ public class Player {
         this.keys = keys;
     }
 
-    public String getColour() {
+    public Color getColour() {
         return colour;
     }
 
-    public void setColour(String colour) {
+    public void setColour(Color colour) {
         this.colour = colour;
     }
 
