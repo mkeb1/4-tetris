@@ -7,10 +7,11 @@ public class GUI {
     DrawCircle drawCircle;
     DrawLine drawLine;
 
-
-
-
     public GUI() {
+
+    }
+
+    public void startGame() {
         jf = new JFrame("4-tetris");
         jf.setSize(1920, 1080);
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
