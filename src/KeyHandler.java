@@ -10,6 +10,9 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         //gedrückt
+        if(e.getKeyCode() == KeyEvent.VK_W){  //VK_Button
+            System.out.println("w ist gedrückt");
+        }
     }
 
     @Override
