@@ -5,21 +5,38 @@ public class Game {
         matrix = new int [9] [7];
     }
 
-    public void checkAll(int player){
+    public void check(int player){
         for(int i=1;i<9;i++) {
+            for(int g=1;g<4;g++) {
+                if(checkVertical(i, g, player)) {
+                    //methode win(player)
+                }
+            }
         }
+        for(int i=1;i<6;i++) {
+            for(int g=1;g<7;g++) {
+                if(checkHorizontal(i, g, player)) {
+                    //methode win(player)
+                }
+            }
+        }
+        for(int i=1;i<6;i++) {
+            for(int g=1;g<4;g++) {
+                if(checkDiagonalUp(i, g, player)) {
+                    //methode win(player)
+                }
+            }
+        }
+        for(int i=1;i<6;i++) {
+            for(int g=4;g<7;g++) {
+                if(checkDiagonalDown(i, g, player)) {
+                    //methode win(player)
+                }
+            }
+        }
+
     }
-    public boolean check(int x, int y, int player) {
-        if(checkVertical(x, y, player) == true){
-            return true;}
-        else if(checkHorizontal(x, y, player) == true){
-            return true;}
-        else if(checkDiagonalDown(x, y, player) == true){
-            return true;}
-        else if(checkDiagonalUp(x, y, player) == true){
-            return true;}
-        else{return false;}
-    }
+
     public boolean checkVertical(int x, int y, int player){
         if(matrix[x][y] == player && matrix[x][y+1] == player && matrix[x][y+2] == player && matrix[x][y+3] == player){return true;}
         else {return false;}
@@ -37,4 +54,4 @@ public class Game {
         else {return false;}
     }
 
-    }
+}
