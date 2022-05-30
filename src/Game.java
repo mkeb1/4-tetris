@@ -8,22 +8,30 @@ public class Game {
     public void check(int player){
         for(int i=1;i<9;i++) {
             for(int g=1;g<4;g++) {
-                checkVertical(i, g, player);
+                if(checkVertical(i, g, player)) {
+                    //methode win(player)
+                }
             }
         }
         for(int i=1;i<6;i++) {
             for(int g=1;g<7;g++) {
-                checkHorizontal(i, g, player);
+                if(checkHorizontal(i, g, player)) {
+                    //methode win(player)
+                }
             }
         }
         for(int i=1;i<6;i++) {
             for(int g=1;g<4;g++) {
-                checkDiagonalUp(i, g, player);
+                if(checkDiagonalUp(i, g, player)) {
+                    //methode win(player)
+                }
             }
         }
         for(int i=1;i<6;i++) {
             for(int g=4;g<7;g++) {
-                checkDiagonalDown(i, g, player);
+                if(checkDiagonalDown(i, g, player)) {
+                    //methode win(player)
+                }
             }
         }
 
