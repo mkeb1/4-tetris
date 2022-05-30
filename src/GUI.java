@@ -17,7 +17,7 @@ public class GUI {
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jf.getContentPane().setBackground(Color.DARK_GRAY);
 
-       // addPiece(Color.YELLOW, 500, 500, 50 , 50);
+        //addPiece(Color.YELLOW, 500, 500, 50 , 50);
         //addPiece(Color.GREEN, 600, 600, 50 , 50);
 
         jf.setVisible(true);
