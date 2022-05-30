@@ -1,14 +1,30 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyEvent.*;
+import java.awt.event.KeyListener;
 
-public class GUI {
+public class GUI implements KeyListener {
 
     JFrame jf;
     DrawCircle drawCircle;
     DrawLine drawLine;
 
     public GUI() {
+        startScreen();
+    }
 
+    public void startScreen() {
+        jf = new JFrame("start-screen");
+        jf.setSize(1920, 1080);
+        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jf.getContentPane().setBackground(Color.DARK_GRAY);
+
+        jf.setVisible(true);
+
+        //klappt noch nicht das muss ich noch verstehen aber hier soll dann eigentlich halt das spiel gestartet werden
+        //sobald man die leertaste drückt
+        keyTyped(new KeyEvent(VK_SPACE));
     }
 
     public void startGame() {
@@ -57,4 +73,18 @@ public class GUI {
     }
 
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        startGame();
+    }
 }
