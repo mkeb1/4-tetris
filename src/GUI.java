@@ -24,6 +24,7 @@ public class GUI {
         Grid();
 
 
+        jf.addKeyListener(new KeyHandler()); //added den Keylistener
 
     }
 
