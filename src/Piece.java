@@ -1,4 +1,10 @@
-import static java.awt.event.KeyEvent.*;   // das braucht man für die Tasten
+import java.awt.*;
+import java.util.Objects;
+import static java.awt.event.KeyEvent.*;
+import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Piece{
     public int speed;
@@ -9,7 +15,7 @@ public class Piece{
         //piece_colour = Player.getColour();
     }
 
-    /*public void speed(){
-    }*/
+
+
 
 }
