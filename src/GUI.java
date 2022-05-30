@@ -17,8 +17,6 @@ public class GUI {
         jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jf.getContentPane().setBackground(Color.DARK_GRAY);
 
-       // addPiece(Color.YELLOW, 500, 500, 50 , 50);
-        //addPiece(Color.GREEN, 600, 600, 50 , 50);
 
         jf.setVisible(true);
 
@@ -36,16 +34,7 @@ public class GUI {
         jf.repaint();
    }
 
-   /* public void addPiece(Color color, int x, int y, int w, int h) {
-        jf.add(piece(color, x, y, w, h));
-        jf.repaint();
-    }
 
-    DrawCircle piece(Color color, int x, int y, int w, int h) {
-        //drawCircle = new DrawCircle(color, x, y, w, h);
-        drawCircle.setVisible(true);
-        return drawCircle;
-    }*/
 
     /** Das Spielfeld **/
 
@@ -54,6 +43,7 @@ public class GUI {
         line1 = new DrawLine(Color.magenta);
         line1.setVisible(true);
         jf.add(line1);
+        jf.repaint();
 
     }
 

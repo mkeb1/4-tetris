@@ -30,15 +30,31 @@ public class DrawCircle extends JLabel {
 
         grafik2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
+        for(int i = 0; i < nPieces -1; ++i) {
+            g.setColor(color[i]);
+            g.drawLine(x[i], y[i], w[i], h[i]);
+        }
 
-        /*g.setColor(color);
-        g.fillOval(x, y, w, h);*/
 
         repaint();
     }
 
-    public void move(int x, int y) {
+    public void setX(int n, int x) {
+        this.x [n] = x;
+    }
 
+    public void setY(int n, int y) {
+        this.y [n] = y;
+    }
+
+    public void setColor(int n, Color color) {
+        this.color [n] = color;
+        repaint();
+    }
+
+    public void move(int n, int x, int y) {
+        setX(n, x);
+        setY(n, y);
         repaint();
     }
 
