@@ -42,11 +42,15 @@ public class GUI implements KeyListener {
 
     }
 
-    /**Piece adden und moven **/
+    /**Piece adden und moven und entfernen **/
 
     public void movePieceTo(int n, int x, int y) {
         drawCircle.move(n, x, y);
         jf.repaint();
+   }
+
+   public void delAllPieces() {
+        drawCircle = null;
    }
 
     public void addPiece(Color color, int x, int y) {
