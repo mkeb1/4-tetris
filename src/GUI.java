@@ -8,9 +8,6 @@ public class GUI implements KeyListener {
 
     JFrame jf;
     DrawCircle drawCircle;
-    DrawLine drawLine;
-
-    int zä = 0;
 
     public GUI() {
         //startScreen();
@@ -41,14 +38,6 @@ public class GUI implements KeyListener {
         Grid();
         jf.setVisible(true);
 
-
-
-        addPiece(Color.YELLOW, 200, 200);
-        addPiece(Color.YELLOW, 400, 400);
-        addPiece(Color.YELLOW, 600, 600);
-
-
-
         //jf.addKeyListener(new KeyHandler()); //added den Keylistener
 
     }
@@ -61,8 +50,7 @@ public class GUI implements KeyListener {
    }
 
     public void addPiece(Color color, int x, int y) {
-        zä = zä + 1;
-        drawCircle.setnPieces(zä);
+        drawCircle.setnPieces(drawCircle.getnPieces() + 1);
         drawCircle.setX(drawCircle.getnPieces() - 1, x);
         drawCircle.setY(drawCircle.getnPieces() - 1, y);
         drawCircle.setColor(drawCircle.getnPieces() - 1, color);
