@@ -8,15 +8,15 @@ import javax.swing.JLabel;
 public class DrawCircle extends JLabel {
 
     Color [] color;
-    int [] x, y, w, h;
-    int nPieces;
+    int [] x, y, w, h ;
+     int nPieces = 0;
 
     public DrawCircle() {
-        int [] x = new int [63];
-        int [] y = new int [63];
-        int [] w = new int [63];
-        int [] h = new int [63];
-        Color [] color = new Color[63];
+        x = new int [63];
+        y = new int [63];
+        w = new int [63];
+        h = new int [63];
+        color = new Color[63];
 
     }
 
@@ -30,9 +30,11 @@ public class DrawCircle extends JLabel {
 
         grafik2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        for(int i = 0; i < nPieces -1; ++i) {
+        for(int i = 0; i < nPieces; i++) {
             g.setColor(color[i]);
-            g.drawLine(x[i], y[i], w[i], h[i]);
+            w[i] = 80;
+            h[i] = 80;
+            g.fillOval(x[i], y[i], w[i], h[i]);
         }
 
 
@@ -57,5 +59,14 @@ public class DrawCircle extends JLabel {
         setY(n, y);
         repaint();
     }
+
+    public int getnPieces() {
+        return nPieces;
+    }
+
+    public void setnPieces(int nPieces) {
+        this.nPieces = nPieces;
+    }
+
 
 }
