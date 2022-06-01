@@ -1,7 +1,9 @@
 public class Game {
 
     int matrix [] [];
+    GUI gui;
     public Game() {
+        gui = new GUI();
         matrix = new int [9] [7];
     }
 

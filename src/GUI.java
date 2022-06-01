@@ -8,6 +8,7 @@ public class GUI implements KeyListener {
 
     JFrame jf;
     DrawCircle drawCircle;
+    JLabel jl;
 
     public GUI() {
         //startScreen();
