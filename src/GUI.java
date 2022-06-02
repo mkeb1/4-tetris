@@ -36,16 +36,23 @@ public class GUI implements KeyListener {
     }
 
     public void startGame() {
-        jf = new JFrame("4-tetris");
-        jf.setSize(1920, 1080);
-        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jf.getContentPane().setBackground(Color.DARK_GRAY);
-        jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        drawCircle = new DrawCircle();
-
-        Grid();
-        jf.setVisible(true);
-
+            jf = new JFrame("4-tetris");
+            jf.setSize(1920, 1080);
+            jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            jf.getContentPane().setBackground(Color.DARK_GRAY);
+            jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            drawCircle = new DrawCircle();
+            Grid();
+    
+            KeyHandler keyHandler = new KeyHandler(this);
+    
+            jf.setVisible(true);
+    
+            jf.addKeyListener(keyHandler); //added den Keylistener
+    
+            addPiece(Color.red, 300, 300);
+            addPiece(Color.GREEN, 400, 400);
+            keyHandler.setN(keyHandler.getN() +1);
         //jf.addKeyListener(new KeyHandler()); //added den Keylistener
 
     }
