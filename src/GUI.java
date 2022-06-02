@@ -9,7 +9,7 @@ public class GUI implements KeyListener {
     JFrame jf;
     JFrame jfs;
     DrawCircle drawCircle;
-    JLabel jl1;
+    JLabel jl;
 
     public GUI() {
 
@@ -24,42 +24,41 @@ public class GUI implements KeyListener {
         jfs.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jfs.getContentPane().setBackground(Color.DARK_GRAY);
 
-        jl1 = new JLabel("4-Tetris - [SPACE] to start", null, CENTER);
-        jl1.setFont(new Font("Serif", Font.PLAIN, 100));
-        jl1.setForeground(Color.white);
-        jfs.add(jl1);
+        jl = new JLabel("4-Tetris", null, CENTER);
+        jl.setFont(new Font("Serif", Font.BOLD, 150));
+        jl.setForeground(Color.white);
+        jfs.add(jl);
 
         jfs.setVisible(true);
-        jl1.setVisible(true);
+        jl.setVisible(true);
 
         jfs.addKeyListener(k);
     }
 
     public void startGame() {
-            jf = new JFrame("4-tetris");
-            jf.setSize(1920, 1080);
-            jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            jf.getContentPane().setBackground(Color.DARK_GRAY);
-            jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
-            drawCircle = new DrawCircle();
-            Grid();
-    
-            KeyHandler keyHandler = new KeyHandler(this);
-    
-            jf.setVisible(true);
-    
-            jf.addKeyListener(keyHandler); //added den Keylistener
-    
-            addPiece(Color.red, 300, 300);
-            addPiece(Color.GREEN, 400, 400);
-            keyHandler.setN(keyHandler.getN() +1);
-        //jf.addKeyListener(new KeyHandler()); //added den Keylistener
+        jf = new JFrame("4-tetris");
+        jf.setSize(1920, 1080);
+        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jf.getContentPane().setBackground(Color.DARK_GRAY);
+        jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        drawCircle = new DrawCircle();
+        Grid();
+
+        KeyHandler keyHandler = new KeyHandler(this);
+
+        jf.setVisible(true);
+
+        jf.addKeyListener(keyHandler); //added den Keylistener
+
+        addPiece(Color.red, 300, 300);
+        addPiece(Color.GREEN, 400, 400);
+        keyHandler.setN(keyHandler.getN() +1);
 
     }
 
     /**Piece adden und moven und entfernen **/
 
-    public void movePieceTo(int n, int x, int y) {
+    public void movePiece(int n, int x, int y) {
         drawCircle.move(n, x, y);
         jf.repaint();
     }
