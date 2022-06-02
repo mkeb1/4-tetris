@@ -1,16 +1,22 @@
 public class Game {
 
+    boolean win;
     int matrix [] [];
     GUI gui;
     public Game() {
+        win = false;
         gui = new GUI();
         matrix = new int [9] [7];
+        while (win) {
+
+        }
     }
 
     public void check(int player){
         for(int i=1;i<9;i++) {
             for(int g=1;g<4;g++) {
                 if(checkVertical(i, g, player)) {
+                    win = true;
                     //methode win(player)
                 }
             }
@@ -18,6 +24,7 @@ public class Game {
         for(int i=1;i<6;i++) {
             for(int g=1;g<7;g++) {
                 if(checkHorizontal(i, g, player)) {
+                    win = true;
                     //methode win(player)
                 }
             }
@@ -25,6 +32,7 @@ public class Game {
         for(int i=1;i<6;i++) {
             for(int g=1;g<4;g++) {
                 if(checkDiagonalUp(i, g, player)) {
+                    win = true;
                     //methode win(player)
                 }
             }
@@ -32,6 +40,7 @@ public class Game {
         for(int i=1;i<6;i++) {
             for(int g=4;g<7;g++) {
                 if(checkDiagonalDown(i, g, player)) {
+                    win = true;
                     //methode win(player)
                 }
             }
