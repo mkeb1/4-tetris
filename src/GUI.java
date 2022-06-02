@@ -9,7 +9,7 @@ public class GUI implements KeyListener {
     JFrame jf;
     JFrame jfs;
     DrawCircle drawCircle;
-    JLabel jl;
+    JLabel jl1;
 
     public GUI() {
 
@@ -24,13 +24,13 @@ public class GUI implements KeyListener {
         jfs.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         jfs.getContentPane().setBackground(Color.DARK_GRAY);
 
-        jl = new JLabel("4-Tetris", null, CENTER);
-        jl.setFont(new Font("Serif", Font.BOLD, 150));
-        jl.setForeground(Color.white);
-        jfs.add(jl);
+        jl1 = new JLabel("4-Tetris - [SPACE] to start", null, CENTER);
+        jl1.setFont(new Font("Serif", Font.PLAIN, 100));
+        jl1.setForeground(Color.white);
+        jfs.add(jl1);
 
         jfs.setVisible(true);
-        jl.setVisible(true);
+        jl1.setVisible(true);
 
         jfs.addKeyListener(k);
     }
