@@ -1,31 +1,38 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyEvent.*;
 import java.awt.event.KeyListener;
+import static javax.swing.SwingConstants.CENTER;
 
 public class GUI implements KeyListener {
 
     JFrame jf;
+    JFrame jfs;
     DrawCircle drawCircle;
     JLabel jl;
 
     public GUI() {
-        //startScreen();
-        startGame();
+
     }
 
     public void startScreen() {
-        jf = new JFrame("start-screen");
-        jf.setSize(1920, 1080);
-        jf.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jf.getContentPane().setBackground(Color.DARK_GRAY);
+        KeyHandler k = new KeyHandler(this);
+        k.setStartscreen(true);
 
-        jf.setVisible(true);
+        jfs = new JFrame("start-screen");
+        jfs.setSize(1920, 1080);
+        jfs.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jfs.getContentPane().setBackground(Color.DARK_GRAY);
 
-        //klappt noch nicht das muss ich noch verstehen aber hier soll dann eigentlich halt das spiel gestartet werden
-        //sobald man die leertaste drückt
-        //keyTyped(new KeyEvent(VK_SPACE));
+        jl = new JLabel("4-Tetris", null, CENTER);
+        jl.setFont(new Font("Serif", Font.BOLD, 150));
+        jl.setForeground(Color.white);
+        jfs.add(jl);
+
+        jfs.setVisible(true);
+        jl.setVisible(true);
+
+        jfs.addKeyListener(k);
     }
 
     public void startGame() {
@@ -48,11 +55,11 @@ public class GUI implements KeyListener {
     public void movePieceTo(int n, int x, int y) {
         drawCircle.move(n, x, y);
         jf.repaint();
-   }
+    }
 
-   public void delAllPieces() {
+    public void delAllPieces() {
         drawCircle = null;
-   }
+    }
 
     public void addPiece(Color color, int x, int y) {
         drawCircle.setnPieces(drawCircle.getnPieces() + 1);
