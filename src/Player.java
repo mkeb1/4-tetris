@@ -9,9 +9,14 @@ public class Player {
     public int keyRight;
     public String keys;      // entweder "wasd" oder "arrows"
 
-    Player(Color colour, int points, String keys) {
+
+
+    public int playernumber;
+
+    Player(Color colour, int points, String keys, int playernumber) {
         this.colour = colour;
         this.points = points;
+        this.playernumber = playernumber;
         if (Objects.equals(keys, "wasd")) {   // d.h. wenn "wasd" angegeben wird hat der Spieler wasd
             this.keyLeft = VK_A;
             this.keyRight = VK_D;
@@ -22,6 +27,9 @@ public class Player {
         }
     }
 
+    public int getPlayernumber() {
+        return playernumber;
+    }
 
     public String getKeys() {
         return keys;

@@ -1,14 +1,21 @@
+import java.awt.*;
+
 public class Game {
 
     boolean win;
     int [][] matrix;
     GUI gui;
+    Player player1, player2;
     public Game() {
+        player1 = new Player(Color.cyan,0,"wasd",1);
+        player2 = new Player(Color.green,0,"arrows",2);
         win = false;
         gui = new GUI();
         matrix = new int [9] [7];
-        while (!win) {
 
+        while (!win) {
+            check(player1.getPlayernumber());
+            check(player2.getPlayernumber());
         }
     }
 
