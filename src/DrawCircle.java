@@ -55,8 +55,8 @@ public class DrawCircle extends JLabel {
     }
 
     public void move(int n, int x, int y) {
-        setX(n, x);
-        setY(n, y);
+        setX(n, this.x [n] + x);
+        setY(n, this.y [n] + y);
         repaint();
     }
 
