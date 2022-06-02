@@ -12,6 +12,7 @@ public class Game {
         win = false;
         gui = new GUI();
         matrix = new int [9] [7];
+
         while (!win) {
             check(player1.getPlayernumber());
             check(player2.getPlayernumber());
