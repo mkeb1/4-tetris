@@ -1,7 +1,7 @@
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
-public class KeyHandler implements KeyListener {
+public class KeyHandler extends GUI implements KeyListener {
     @Override
     public void keyTyped(KeyEvent e) {
         //gedrückt + losgelassen
@@ -34,6 +34,10 @@ public class KeyHandler implements KeyListener {
         }
         if(e.getKeyCode() == KeyEvent.VK_RIGHT){  //VK_Button
             System.out.println("rechts ist gedrückt");
+        }
+
+        if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+
         }
     }
 
