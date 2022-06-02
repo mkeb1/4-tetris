@@ -2,9 +2,26 @@ import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 
 public class KeyHandler extends GUI implements KeyListener {
+
+    GUI gui;
+    int n;
+    boolean startscreen;
+
+    public KeyHandler(GUI gui) {
+        this.gui = gui;
+    }
+
+    public boolean isStartscreen() {
+        return startscreen;
+    }
+
+    public void setStartscreen(boolean startscreen) {
+        this.startscreen = startscreen;
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
-        //gedrückt + losgelassen
+
     }
 
     @Override
@@ -36,8 +53,11 @@ public class KeyHandler extends GUI implements KeyListener {
             System.out.println("rechts ist gedrückt");
         }
 
-        if(e.getKeyCode() == KeyEvent.VK_SPACE) {
-
+        if(startscreen && e.getKeyCode() == KeyEvent.VK_SPACE) {
+            gui.jfs.setVisible(false);
+            gui.jfs.dispose();
+            gui.startGame();
+            startscreen = false;
         }
     }
 
