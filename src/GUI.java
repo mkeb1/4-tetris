@@ -50,8 +50,8 @@ public class GUI implements KeyListener {
 
         jf.addKeyListener(keyHandler); //added den Keylistener
 
-        addPiece(Color.red, 300, 300);
-        addPiece(Color.GREEN, 400, 400);
+        addPiece(Color.red, 600, 300);
+        addPiece(Color.GREEN, 520, 390);
         keyHandler.setN(keyHandler.getN() +1);
 
     }
@@ -104,5 +104,13 @@ public class GUI implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         startGame();
+    }
+
+    public DrawCircle getDrawCircle() {
+        return drawCircle;
+    }
+
+    public void setDrawCircle(DrawCircle drawCircle) {
+        this.drawCircle = drawCircle;
     }
 }

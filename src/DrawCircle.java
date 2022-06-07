@@ -68,5 +68,8 @@ public class DrawCircle extends JLabel {
         this.nPieces = nPieces;
     }
 
+    public int getX(int n) {
+        return x[n];
+    }
 
 }
