@@ -5,7 +5,10 @@ public class Game {
     boolean win;
     int [][] matrix;
     GUI gui;
+    int nPieces = 0;
+    int currentPlayer;
     Player player1, player2;
+
     public Game() {
         player1 = new Player(Color.cyan,0,"wasd",1);
         player2 = new Player(Color.green,0,"arrows",2);
@@ -74,6 +77,44 @@ public class Game {
 
     public void win(int player){
 
+    }
+
+    public void spawnPiece() {
+        nPieces++;
+        gui.getDrawCircle().setnPieces(nPieces);
+        if(currentPlayer == 1) {
+            gui.addPiece(player1.getColour(), randomXPosition(), 90);
+        }else if(currentPlayer ==2) {
+            gui.addPiece(player2.getColour(), randomXPosition(), 90);
+        }else {
+
+        }
+    }
+
+    public int randomXPosition() {
+        int place = (int) (Math.random() * 9) + 1;
+        switch (place) {
+            case 1:
+                return 520;
+             case 2:
+                return 620;
+            case 3:
+                return 720;
+            case 4:
+                return 820;
+            case 5:
+                return 920;
+            case 6:
+                return 1020;
+            case 7:
+                return 1120;
+            case 8:
+                return 1220;
+            case 9:
+                return 1320;
+            default:
+                return 0;
+        }
     }
 
 }
