@@ -3,6 +3,7 @@ import java.awt.*;
 public class Game {
 
     boolean win;
+    boolean game;
     int [][] matrix;
     GUI gui;
     int nPieces = 0;
@@ -12,8 +13,17 @@ public class Game {
     public Game() {
         player1 = new Player(Color.cyan,0,"wasd",1);
         player2 = new Player(Color.green,0,"arrows",2);
+        gui = new GUI(this);
+        gui.startScreen();
+        currentPlayer = 2;
+
+    }
+
+    public Game(int fürTest) {
+        player1 = new Player(Color.cyan,0,"wasd",1);
+        player2 = new Player(Color.green,0,"arrows",2);
         win = false;
-        gui = new GUI();
+        gui = new GUI(this);
         matrix = new int [9] [7];
 
         while (!win) {
@@ -80,13 +90,13 @@ public class Game {
     }
 
     public void spawnPiece() {
-        nPieces++;
+        System.out.println( nPieces);
+        nPieces = nPieces + 1;
         gui.getDrawCircle().setnPieces(nPieces);
         if(currentPlayer == 1) {
-            gui.addPiece(player1.getColour(), randomXPosition(), 90);
+            gui.addPiece(player1.getColour(), randomXPosition(), 10);
         }else if(currentPlayer ==2) {
-            gui.addPiece(player2.getColour(), randomXPosition(), 90);
-        }else {
+            gui.addPiece(player2.getColour(), randomXPosition(), 10);
 
         }
     }
@@ -117,4 +127,11 @@ public class Game {
         }
     }
 
+    public boolean isGame() {
+        return game;
+    }
+
+    public void setGame(boolean game) {
+        this.game = game;
+    }
 }

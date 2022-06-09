@@ -90,6 +90,6 @@ public class KeyHandler implements KeyListener {
     }
 
     public void setN(int n) {
-        this.n = n;
+        this.n = n -1;
     }
 }

@@ -10,8 +10,10 @@ public class GUI implements KeyListener {
     JFrame jfs;
     DrawCircle drawCircle;
     JLabel jl;
+    Game game;
 
-    public GUI() {
+    public GUI(Game game) {
+        this.game = game;
 
     }
 
@@ -50,9 +52,10 @@ public class GUI implements KeyListener {
 
         jf.addKeyListener(keyHandler); //added den Keylistener
 
-        addPiece(Color.red, 600, 300);
-        addPiece(Color.GREEN, 520, 390);
+        /*addPiece(Color.red, 600, 300);
+        addPiece(Color.GREEN, 520, 390);*/
         keyHandler.setN(keyHandler.getN() +1);
+        game.spawnPiece();
 
     }
 
@@ -68,7 +71,6 @@ public class GUI implements KeyListener {
     }
 
     public void addPiece(Color color, int x, int y) {
-        drawCircle.setnPieces(drawCircle.getnPieces() + 1);
         drawCircle.setX(drawCircle.getnPieces() - 1, x);
         drawCircle.setY(drawCircle.getnPieces() - 1, y);
         drawCircle.setColor(drawCircle.getnPieces() - 1, color);
