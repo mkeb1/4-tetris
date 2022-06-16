@@ -30,7 +30,7 @@ public class DrawCircle extends JLabel {
 
         grafik2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        System.out.println(nPieces);
+        //System.out.println(nPieces);
 
         for(int i = 0; i < nPieces; i++) {
             g.setColor(color[i]);
@@ -49,14 +49,18 @@ public class DrawCircle extends JLabel {
         this.y [n] = y;
     }
 
-    public void setColor(int n, Color color) {
-        this.color [n] = color;
+    public void setColor(Color color) {
+        this.color [nPieces - 1] = color;
         repaint();
     }
 
-    public void move(int n, int x, int y) {
-        setX(n, this.x [n] + x);
-        setY(n, this.y [n] + y);
+    public void moveY(int y) {
+        setY(nPieces-1, this.y [nPieces-1] + y);
+        repaint();
+    }
+
+    public void moveX(int x) {
+        setX(nPieces-1, this.x [nPieces-1] + x);
         repaint();
     }
 
@@ -70,6 +74,10 @@ public class DrawCircle extends JLabel {
 
     public int getX(int n) {
         return x[n];
+    }
+
+    public int getY(int n) {
+        return y[n];
     }
 
 }

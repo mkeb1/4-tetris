@@ -4,8 +4,7 @@ import java.awt.event.KeyEvent;
 public class KeyHandler implements KeyListener {
 
     GUI gui;
-    int n;
-    boolean startscreen;
+    int n = 0;
     int xMin = 510;
     int xMax = 1410;
 
@@ -13,13 +12,6 @@ public class KeyHandler implements KeyListener {
         this.gui = gui;
     }
 
-    public boolean isStartscreen() {
-        return startscreen;
-    }
-
-    public void setStartscreen(boolean startscreen) {
-        this.startscreen = startscreen;
-    }
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -28,55 +20,42 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        n = gui.getDrawCircle().getnPieces()-1;
+
         //gedrückt
-        if(e.getKeyCode() == KeyEvent.VK_W){  //VK_Button
-            System.out.println("w ist gedrückt");
-        }
         if(e.getKeyCode() == KeyEvent.VK_A){  //VK_Button
             System.out.println("a ist gedrückt");
             if((gui.getDrawCircle().getX(n) - 100 > xMin) && (gui.getDrawCircle().getX(n) -100 < xMax)) {
-                gui.movePiece(n, -100, 0);
+                gui.getDrawCircle().moveX(-100);
             }
-
-        }
-        if(e.getKeyCode() == KeyEvent.VK_S){  //VK_Button
-            System.out.println("s ist gedrückt");
         }
 
         if(e.getKeyCode() == KeyEvent.VK_D){  //VK_Button
             System.out.println("d ist gedrückt");
             if((gui.getDrawCircle().getX(n) + 100 > xMin) && (gui.getDrawCircle().getX(n) + 100 < xMax)) {
-                gui.movePiece(n, 100, 0);
+                gui.getDrawCircle().moveX(100);
             }
-        }
-
-        if(e.getKeyCode() == KeyEvent.VK_UP){  //VK_Button
-            System.out.println("hoch ist gedrückt");
         }
 
         if(e.getKeyCode() == KeyEvent.VK_LEFT){  //VK_Button
             System.out.println("links ist gedrückt");
             if((gui.getDrawCircle().getX(n) - 100 > xMin) && (gui.getDrawCircle().getX(n) - 100 < xMax)) {
-                gui.movePiece(n, -100, 0);
+                gui.getDrawCircle().moveX(-100);
             }
-        }
-
-        if(e.getKeyCode() == KeyEvent.VK_DOWN){  //VK_Button
-            System.out.println("unten ist gedrückt");
         }
 
         if(e.getKeyCode() == KeyEvent.VK_RIGHT){  //VK_Button
             System.out.println("rechts ist gedrückt");
             if((gui.getDrawCircle().getX(n) + 100 > xMin) && (gui.getDrawCircle().getX(n) + 100 < xMax)) {
-                gui.movePiece(n, 100, 0);
+                gui.getDrawCircle().moveX(100);
             }
         }
 
-        if(startscreen && e.getKeyCode() == KeyEvent.VK_SPACE) {
+        if(gui.getGame().isStartscreen() && e.getKeyCode() == KeyEvent.VK_SPACE) {
             gui.jfs.setVisible(false);
             gui.jfs.dispose();
             gui.startGame();
-            startscreen = false;
+
         }
     }
 
@@ -85,11 +64,4 @@ public class KeyHandler implements KeyListener {
         //loslassen
     }
 
-    public int getN() {
-        return n;
-    }
-
-    public void setN(int n) {
-        this.n = n -1;
-    }
 }
