@@ -24,30 +24,38 @@ public class KeyHandler implements KeyListener {
 
         //gedrückt
         if(e.getKeyCode() == KeyEvent.VK_A){  //VK_Button
-            System.out.println("a ist gedrückt");
-            if((gui.getDrawCircle().getX(n) - 100 > xMin) && (gui.getDrawCircle().getX(n) -100 < xMax)) {
-                gui.getDrawCircle().moveX(-100);
+            //System.out.println("a ist gedrückt");
+            if(gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces()-1) <= 290) {
+                if ((gui.getDrawCircle().getX(n) - 100 > xMin) && (gui.getDrawCircle().getX(n) - 100 < xMax)) {
+                    gui.getDrawCircle().moveX(-100);
+                }
             }
         }
 
         if(e.getKeyCode() == KeyEvent.VK_D){  //VK_Button
-            System.out.println("d ist gedrückt");
-            if((gui.getDrawCircle().getX(n) + 100 > xMin) && (gui.getDrawCircle().getX(n) + 100 < xMax)) {
-                gui.getDrawCircle().moveX(100);
+            //System.out.println("d ist gedrückt");
+            if(gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces()-1) <= 290) {
+                if ((gui.getDrawCircle().getX(n) + 100 > xMin) && (gui.getDrawCircle().getX(n) + 100 < xMax)) {
+                    gui.getDrawCircle().moveX(100);
+                }
             }
         }
 
         if(e.getKeyCode() == KeyEvent.VK_LEFT){  //VK_Button
-            System.out.println("links ist gedrückt");
-            if((gui.getDrawCircle().getX(n) - 100 > xMin) && (gui.getDrawCircle().getX(n) - 100 < xMax)) {
-                gui.getDrawCircle().moveX(-100);
+            //System.out.println("links ist gedrückt");
+            if(gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces()-1) <= 290) {
+                if ((gui.getDrawCircle().getX(n) - 100 > xMin) && (gui.getDrawCircle().getX(n) - 100 < xMax)) {
+                    gui.getDrawCircle().moveX(-100);
+                }
             }
         }
 
         if(e.getKeyCode() == KeyEvent.VK_RIGHT){  //VK_Button
-            System.out.println("rechts ist gedrückt");
-            if((gui.getDrawCircle().getX(n) + 100 > xMin) && (gui.getDrawCircle().getX(n) + 100 < xMax)) {
-                gui.getDrawCircle().moveX(100);
+            //System.out.println("rechts ist gedrückt");
+            if(gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces()-1) <= 290) {
+                if ((gui.getDrawCircle().getX(n) + 100 > xMin) && (gui.getDrawCircle().getX(n) + 100 < xMax)) {
+                    gui.getDrawCircle().moveX(100);
+                }
             }
         }
 

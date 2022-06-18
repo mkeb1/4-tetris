@@ -7,6 +7,7 @@ public class Game {
     boolean startscreen;
     boolean endscreen;
     int[][] matrix;
+    int[][] fieldCoordsX, fieldCoordsY;
     GUI gui;
     int currentPlayer;
     Player player1, player2;
@@ -14,6 +15,10 @@ public class Game {
     public Game() {
         player1 = new Player(Color.cyan, 0, "wasd", 1);
         player2 = new Player(Color.green, 0, "arrows", 2);
+        fieldCoordsX = new int[9][7];
+        fieldCoordsY = new int[9][7];
+        setFieldCoords();
+
         gui = new GUI(this);
         gui.startScreen();
         currentPlayer = 1;
@@ -43,7 +48,7 @@ public class Game {
         }
     }
 
-    public Game(int fürTest) {
+    /*public Game(int fürTest) {
         player1 = new Player(Color.cyan, 0, "wasd", 1);
         player2 = new Player(Color.green, 0, "arrows", 2);
         win = false;
@@ -54,7 +59,7 @@ public class Game {
             check(player1.getPlayernumber());
             check(player2.getPlayernumber());
         }
-    }
+    }*/
 
     public void check(int player) {       // hier hatte ich nicht ganz verstanden warum der player ein int ist bzw wo das int herkommt? -megan
         for (int i = 1; i < 9; i++) {
@@ -176,5 +181,26 @@ public class Game {
 
     public void setEndscreen(boolean endscreen) {
         this.endscreen = endscreen;
+    }
+
+    public void setFieldCoords() {
+        int x = 420;
+        int y = 290;
+        for(int i = 0; i<7; i++) {
+            x= 420;
+            for(int h = 0; h<9; h++) {
+                x = x + 100;
+                fieldCoordsX[h][i] = x;
+                //System.out.println(fieldCoordsX[h][i]);
+            }
+        }
+        for(int i = 0; i<9; i++) {
+            y = 290;
+            for(int h = 0; h<7; h++) {
+                y = y +100;
+                fieldCoordsY[i][h] = y;
+                //System.out.println(fieldCoordsY[i][h]);
+            }
+        }
     }
 }
