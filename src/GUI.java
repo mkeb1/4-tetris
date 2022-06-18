@@ -8,8 +8,10 @@ public class GUI {
 
     JFrame jf = new JFrame("4-tetris");
     JFrame jfs;
+    JFrame jfe;
     DrawCircle drawCircle;
     JLabel jl;
+    JLabel jl2;
     KeyHandler keyHandler = new KeyHandler(this);
     Game game;
 
@@ -52,7 +54,6 @@ public class GUI {
 
         jf.setVisible(true);
 
-
         jf.addKeyListener(keyHandler); //added den Keylistener
         getGame().setStartscreen(false);
         getGame().setGame(true);
@@ -60,6 +61,30 @@ public class GUI {
 
 
     }
+
+    public void endScreen(int player) {
+        getGame().setGame(false);
+        getGame().setEndscreen(true);
+
+        KeyHandler k = new KeyHandler(this);
+
+        jfe = new JFrame("end-screen");
+        jfe.setSize(1920, 1080);
+        jfe.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jfe.getContentPane().setBackground(Color.DARK_GRAY);
+
+        jl2 = new JLabel("Player " + player +  " win!", null, CENTER);
+        jl2.setFont(new Font("Serif", Font.PLAIN, 90));
+        jl2.setForeground(Color.white);
+        jfe.add(jl2);
+
+        jfe.setVisible(true);
+        jl2.setVisible(true);
+
+        jfe.addKeyListener(k);
+
+    }
+
 
     /**Piece adden und moven und entfernen **/
 

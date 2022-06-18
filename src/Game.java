@@ -5,6 +5,7 @@ public class Game {
     boolean win = false;
     boolean game;
     boolean startscreen;
+    boolean endscreen;
     int[][] matrix;
     GUI gui;
     int currentPlayer;
@@ -55,7 +56,7 @@ public class Game {
         }
     }
 
-    public void check(int player) {
+    public void check(int player) {       // hier hatte ich nicht ganz verstanden warum der player ein int ist bzw wo das int herkommt? -megan
         for (int i = 1; i < 9; i++) {
             for (int g = 1; g < 4; g++) {
                 if (checkVertical(i, g, player)) {
@@ -124,7 +125,8 @@ public class Game {
     }
 
     public void win(int player) {
-
+        gui.jf.dispose();
+        gui.endScreen(player);
     }
 
 
@@ -168,5 +170,11 @@ public class Game {
 
     public void setStartscreen(boolean startscreen) {
         this.startscreen = startscreen;
+    }
+
+    public boolean isEndscreen() { return endscreen; }
+
+    public void setEndscreen(boolean endscreen) {
+        this.endscreen = endscreen;
     }
 }
