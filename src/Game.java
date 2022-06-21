@@ -3,9 +3,7 @@ import java.awt.*;
 public class Game {
 
     boolean win = false;
-    boolean game;
-    boolean startscreen;
-    boolean endscreen;
+    boolean startscreen, game, endscreen;
     int[][] matrix;
     int[][] fieldCoordsX, fieldCoordsY;
     GUI gui;
@@ -15,9 +13,12 @@ public class Game {
     public Game() {
         player1 = new Player(Color.cyan, 0, "wasd", 1);
         player2 = new Player(Color.green, 0, "arrows", 2);
+
         fieldCoordsX = new int[9][7];
         fieldCoordsY = new int[9][7];
         setFieldCoords();
+
+        matrix = new int[9][7];
 
         gui = new GUI(this);
         gui.startScreen();
@@ -27,23 +28,85 @@ public class Game {
     }
 
     public void routine() {
-        while(true) {
+        while(!win) {
             if (game) {
-                gui.addPiece(Color.red, randomXPosition(), -10);
+                int r, z;
                 long timeStart = System.currentTimeMillis();
-                while (gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) <= 980) {
-                    if (System.currentTimeMillis() - timeStart >= 1000) {
-                        gui.getDrawCircle().moveY(100);
+
+                currentPlayer = 1; // aktuellen Spieler setzen
+                gui.addPiece(player1.getColour(), randomXPosition(), -10); // Piece hinzufügen
+                z = 0;
+                r = 0;
+                while (gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) <= 980) { //Piece kann nur bis ins untere Feld geschoben werden
+                    if (System.currentTimeMillis() - timeStart >= 1000) { //alle T nach unten moven
+                        if(gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) == 390) { //xPos holen wenn man nicht mehr moven kann
+                            for(int i = 0; i<9; i++) {
+                                if(fieldCoordsX [i][0] == gui.getDrawCircle().getX(gui.getDrawCircle().getnPieces()-1)) {
+                                    z= i;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if(gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) >= 390) { // Moven wenn in Raster
+                            System.out.println(matrix[z][r+1]);
+                            if (matrix[z][r+1] == 0) { //überprüfen ob Feld frei
+                                gui.getDrawCircle().moveY(100);
+                                if((gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) == 990)) { //Wenn ganz unten dann Feld belegt von currentPlayer gesetzt
+                                    matrix[z][r+1] = currentPlayer;
+                                }
+                                r++;
+                            } else { //Wenn Feld nicht frei, dann bleibt Piece
+                                matrix[z][r] = currentPlayer; //Feld wird auf belegt von currentPlayer gesetzt
+                                break;
+                            }
+                        }
+                        if(gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) <= 290) { //Moven wenn noch nicht in Raster
+                            gui.getDrawCircle().moveY(100);
+                        }
+
                         timeStart = System.currentTimeMillis();
+
                     }
                 }
-                gui.addPiece(Color.GREEN, randomXPosition(), -10);
-                while (gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) <= 980) {
-                    if (System.currentTimeMillis() - timeStart >= 1000) {
-                        gui.getDrawCircle().moveY(100);
+                check(player1.getPlayernumber());
+
+                currentPlayer = 2; // aktuellen Spieler setzen
+                gui.addPiece(player2.getColour(), randomXPosition(), -10); // Piece hinzufügen
+                z = 0;
+                r = 0;
+                while (gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) <= 980) { //Piece kann nur bis ins untere Feld geschoben werden
+                    if (System.currentTimeMillis() - timeStart >= 1000) { //alle T nach unten moven
+                        if(gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) == 390) { //xPos holen wenn man nicht mehr moven kann
+                            for(int i = 0; i<9; i++) {
+                                if(fieldCoordsX [i][0] == gui.getDrawCircle().getX(gui.getDrawCircle().getnPieces()-1)) {
+                                    z= i;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if(gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) >= 390) { // Moven wenn in Raster
+                            System.out.println(matrix[z][r+1]);
+                            if (matrix[z][r+1] == 0) { //überprüfen ob Feld frei
+                                gui.getDrawCircle().moveY(100);
+                                if((gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) == 990)) { //Wenn ganz unten dann Feld belegt von currentPlayer gesetzt
+                                    matrix[z][r+1] = currentPlayer;
+                                }
+                                r++;
+                            } else { //Wenn Feld nicht frei, dann bleibt Piece
+                                matrix[z][r] = currentPlayer; //Feld wird auf belegt von currentPlayer gesetzt
+                                      break;
+                            }
+                        }
+                        if(gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) <= 290) { //Moven wenn noch nicht in Raster
+                            gui.getDrawCircle().moveY(100);
+                        }
                         timeStart = System.currentTimeMillis();
+
                     }
                 }
+                check(player2.getPlayernumber());
             }
         }
     }
@@ -161,6 +224,27 @@ public class Game {
         }
     }
 
+    public void setFieldCoords() {
+        int x = 420;
+        int y = 290;
+        for(int i = 0; i<7; i++) {
+            x= 420;
+            for(int h = 0; h<9; h++) {
+                x = x + 100;
+                fieldCoordsX[h][i] = x;
+                //System.out.println(fieldCoordsX[h][i]);
+            }
+        }
+        for(int i = 0; i<9; i++) {
+            y = 290;
+            for(int h = 0; h<7; h++) {
+                y = y +100;
+                fieldCoordsY[i][h] = y;
+                //System.out.println(fieldCoordsY[i][h]);
+            }
+        }
+    }
+
     public boolean isGame() {
         return game;
     }
@@ -183,24 +267,5 @@ public class Game {
         this.endscreen = endscreen;
     }
 
-    public void setFieldCoords() {
-        int x = 420;
-        int y = 290;
-        for(int i = 0; i<7; i++) {
-            x= 420;
-            for(int h = 0; h<9; h++) {
-                x = x + 100;
-                fieldCoordsX[h][i] = x;
-                //System.out.println(fieldCoordsX[h][i]);
-            }
-        }
-        for(int i = 0; i<9; i++) {
-            y = 290;
-            for(int h = 0; h<7; h++) {
-                y = y +100;
-                fieldCoordsY[i][h] = y;
-                //System.out.println(fieldCoordsY[i][h]);
-            }
-        }
-    }
+
 }
