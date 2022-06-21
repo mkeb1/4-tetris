@@ -53,7 +53,7 @@ public class Game {
                             if (matrix[z][r+1] == 0) { //überprüfen ob Feld frei
                                 gui.getDrawCircle().moveY(100);
                                 if((gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) == 990)) { //Wenn ganz unten dann Feld belegt von currentPlayer gesetzt
-                                    matrix[z][r+1] = currentPlayer;
+                                    matrix[z][r+1] = currentPlayer; //Feld mit currentPlayer belegen
                                 }
                                 r++;
                             } else { //Wenn Feld nicht frei, dann bleibt Piece
@@ -91,7 +91,7 @@ public class Game {
                             if (matrix[z][r+1] == 0) { //überprüfen ob Feld frei
                                 gui.getDrawCircle().moveY(100);
                                 if((gui.getDrawCircle().getY(gui.getDrawCircle().getnPieces() - 1) == 990)) { //Wenn ganz unten dann Feld belegt von currentPlayer gesetzt
-                                    matrix[z][r+1] = currentPlayer;
+                                    matrix[z][r+1] = currentPlayer; //Feld mit currentPlayer belegen
                                 }
                                 r++;
                             } else { //Wenn Feld nicht frei, dann bleibt Piece
